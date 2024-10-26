@@ -1,0 +1,8 @@
+Days of shipping = DATEDIFF(Orders[Order Date],Orders[Ship Date],DAY)
+
+CalculatedOrdertable = ADDCOLUMNS(SELECTCOLUMNS(Orders,"CATEGORY",Orders[Category],"COUNTRY",Orders[Country],"CUSTNAME",Orders[Customer Name],"PRODTNAME",Orders[Product Name],"SHIPDAY",Orders[Ship Date],"ORDERDAY",Orders[Order Date]),"DAYS OF SHIPPING",[SHIPDAY]-[ORDERDAY])
+
+
+Total sales = SUM(Orders[Sales])
+
+ytd_sales = TOTALYTD([Total sales],(Orders[Order Date]))
